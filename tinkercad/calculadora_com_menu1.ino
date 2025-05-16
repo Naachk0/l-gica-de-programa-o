@@ -1,15 +1,49 @@
-// C++ code
-//
+//tipoderetorno, nomedafuncao, parametro, corpo
 
 int escolhaDaOperacao;
-float numero1;
-float numero2;
+float resultado;// guarda o resultado do calculo
+
+
+void somar(float n1, float n2){
+resultado =  n1 + n2;
+Serial.println("o resultado é: " + String(resultado));//contatenando //com void
+//return resultado;//sem void
+}  
+
+
+
+void dividir(float n1, float n2){
+resultado =  n1 / n2;
+Serial.println("o resultado é: " + String(resultado));//contatenando
+  //return resultado;
+}  
+
+
+
+void subtrair(float n1, float n2){
+resultado =  n1 - n2;
+Serial.println("o resultado é: " + String(resultado));//contatenando
+//return resultado;
+}  
+
+
+void multiplicar(float n1, float n2){
+resultado =  n1 * n2;
+Serial.println("o resultado é: " + String(resultado));//contatenando
+  //return resultado;
+}  
+
 
 void setup()
 {
   Serial.begin(9600);
   
- int contador = 0; //varivel inical do do while
+int contador = 0; //variavel inical do do while
+float numero1;
+float numero2;
+
+   
+  
   
   do{
     Serial.println("bem vindo a calculadora inteligente :P!!!/n");
@@ -24,7 +58,7 @@ void setup()
 
 
     Serial.println("digite 2 numeros");
-    Serial.println("digite o primeiro numero: ");
+    Serial.println("digite o primeiro numero: "); //concatenando
     while(!Serial.available()){}
     numero1 = Serial.parseFloat();
 
@@ -33,17 +67,35 @@ void setup()
     while(!Serial.available()){}
     numero2 = Serial.parseFloat();
     
-    switch(escolhaDaOperacao){
+    switch(escolhaDaOperacao)
+    {
     case 1:
+  somar(numero1, numero2);//estou passand os valores que o usuario digitou via parametro //com void
+  //float retornoFuncaoSomar;//sem void
+ // retornoFuncaoSomar = somar(numero1, numero2); //sem void  
+ // Serial.println(retornoFuncaoSomar);
+      
       break;
       
    case 2:
+   dividir(numero1, numero2);
+    //float retornoFuncaoSomar;//sem void
+  //retornoFuncaoSomar = somar(numero1, numero2); //sem void  
+  //Serial.println(retornoFuncaoSomar);   
       break;
       
    case 3:
+   subtrair(numero1, numero2);
+    //float retornoFuncaoSomar;//sem void
+  //retornoFuncaoSomar = somar(numero1, numero2); //sem void  
+  //Serial.println(retornoFuncaoSomar);   
       break;
       
    case 4:
+  multiplicar(numero1, numero2);
+   //float retornoFuncaoSomar;//sem void
+  //retornoFuncaoSomar = somar(numero1, numero2); //sem void  
+  //Serial.println(retornoFuncaoSomar);    
       break;
       
       default:
@@ -52,7 +104,7 @@ void setup()
     
     
     Serial.println("deseja voltar para o menu? DIgite sim ou não(em minusculo)");
-  }  
+
   while(!Serial.available()){}
     
   
@@ -68,7 +120,7 @@ void setup()
    
   
  }  
-  while(contador != 0);
+  while(contador != 0);//se o contador é igual a 0, o mesmo repete
 }
 
 
